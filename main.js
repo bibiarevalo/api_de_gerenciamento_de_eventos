@@ -6,7 +6,7 @@ const rotas = require("./routers/router.js" );
 
 app.use(bodyParser.json());
 
-app.use("/", rotas);
+app.use("/eventos", rotas);
 
 app.listen(8000);
 

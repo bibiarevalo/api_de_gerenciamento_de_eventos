@@ -1,5 +1,5 @@
 const express = require('express')
-const router = express.Router()
+
 
 const evento = [
     {
@@ -25,7 +25,11 @@ const cadastrarEvent = async (req, res) => {
 
 const listEvent = async (req, res) => {
     try {
-        res.json(evento)
+        const result = evento.map(i =>({
+            nome: i.nome,
+            foto: i.foto
+        }) )
+        res.json(result)
     } catch (error) {
         console.error('Erro ao processar a requisição:', error);
         return res.status(400).json({ message: 'O servidor não pode solicitar a sua requisição' });
@@ -33,6 +37,15 @@ const listEvent = async (req, res) => {
 
 }
 
+const detalhesEvent = async (req, res) =>{
+    try {
+       res.json(evento)
+    } catch (error) {
+        console.error('Erro ao processar a requisição:', error);
+        return res.status(400).json({ message: 'O servidor não pode solicitar a sua requisição' });
+    }
 
+    
+}
 
-module.exports = { cadastrarEvent,listEvent}
+module.exports = { cadastrarEvent,listEvent, detalhesEvent}

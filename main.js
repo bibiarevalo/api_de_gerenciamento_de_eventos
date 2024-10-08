@@ -11,6 +11,9 @@ app.use(bodyParser.json());
 
 app.use("/eventos", rotas);
 
-app.listen(8000);
+const porta = 8000
+app.listen(porta,()=> {
+     console.log("PROJETO RODANDO NA PORTA " + porta);
+});
 
 module.exports = app
